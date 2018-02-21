@@ -1,0 +1,38 @@
+﻿<Window x:Class="WPFPicturePasswordLogger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFPicturePasswordLogger"
+        mc:Ignorable="d"
+        Title="Picture Password Logger" Height="800" Width="750">
+
+	<Window.DataContext>
+		<local:PicturePasswordPresenter></local:PicturePasswordPresenter>
+	</Window.DataContext>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="25px" />
+			<RowDefinition Height="645px" />
+			<RowDefinition Height="25px" />
+			<RowDefinition Height="25px" />
+			<RowDefinition Height="25px" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="120px" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<TextBlock x:Name="_usernameLbl" Text="Username:" Grid.Column="0" Grid.Row="0" Margin="10,0,0,0" />
+		<TextBox x:Name="_usernameTextBox" Text="{Binding Username}" Grid.Column="1" Grid.Row="0" Width="100px" HorizontalAlignment="Left" />
+		<TextBlock x:Name="_passwordLbl" Text="Password:" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0" />
+		<Image Source="{Binding ImageName}" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0" />
+		<Button x:Name="_chooseNewImageBtn" Content="Pick Image" Click="_chooseNewImageBtn_Click" Grid.Column="0" Grid.Row="2" Width="100px" Margin="10,0,0,0"/>
+		<Button x:Name="_createNewLogin" Content="Register" Click="_createNewLogin_Click" Grid.Column="0" Grid.Row="3" Width="100px" Margin="10,0,0,0"  />
+		<StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Margin="10,0,10,0">
+			<Button x:Name="_submitBtn" Content="Login" Click="_submitBtn_Click" Width="100px" />
+			<TextBlock Width="10"/>
+			<Button x:Name="_cancelBtn" Content="Cancel" Click="_cancelBtn_Click" Width="100px" />
+		</StackPanel>
+	</Grid>
+</Window>
